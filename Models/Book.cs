@@ -1,15 +1,19 @@
+using EFCore5RC1.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Models
 {
-  public class Book
-  {
-    public Book()
+    public class Book : IModified
     {
-      Authors = new HashSet<Author>();
+        public Book()
+        {
+            Authors = new HashSet<Author>();
+        }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public ICollection<Author> Authors { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public ICollection<Author> Authors { get; set; }
-  }
 }
